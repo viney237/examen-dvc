@@ -48,7 +48,27 @@ stages:
       hash: md5
       md5: c1b80eb7f083888b625dd0369cf381f8
       size: 227497
-    - path: data/processed_data/scaler.pkl
+    - path: models/scaler.pkl
       hash: md5
       md5: 52a953a6ab1c9aacc7260d8bc5043a3f
       size: 1143
+  grid_search:
+    cmd: python src/data/grid_search.py
+    deps:
+    - path: data/processed_data/X_train_scaled.csv
+      hash: md5
+      md5: c1b80eb7f083888b625dd0369cf381f8
+      size: 227497
+    - path: data/processed_data/y_train.csv
+      hash: md5
+      md5: a9cd9d91da89f732843d72548f64ded3
+      size: 25951
+    - path: models/scaler.pkl
+      hash: md5
+      md5: 52a953a6ab1c9aacc7260d8bc5043a3f
+      size: 1143
+    outs:
+    - path: models/best_params.pkl
+      hash: md5
+      md5: befb70a6ea13ae09803dfd824e91f32f
+      size: 69
