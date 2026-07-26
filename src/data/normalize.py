@@ -21,4 +21,4 @@ pd.DataFrame(X_train_scaled, columns=X_train.columns).to_csv('data/processed_dat
 pd.DataFrame(X_test_scaled, columns=X_test.columns).to_csv('data/processed_data/X_test_scaled.csv', index=False)
 
 # Save the scaler for future use (e.g., in production)
-joblib.dump(scaler, 'data/processed_data/scaler.pkl')
+joblib.dump(scaler, 'models/scaler.pkl')
