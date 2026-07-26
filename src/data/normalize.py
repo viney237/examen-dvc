@@ -1,8 +1,13 @@
 from sklearn.preprocessing import StandardScaler
 import joblib
+import pandas as pd
 
 X_train = pd.read_csv('data/processed_data/X_train.csv')
 X_test = pd.read_csv('data/processed_data/X_test.csv')
+
+# DROP the date column — it's not a useful feature for prediction
+X_train = X_train.drop(columns=["date"], errors="ignore")
+X_test = X_test.drop(columns=["date"], errors="ignore")
 
 # Create scaler
 scaler = StandardScaler()
